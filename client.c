@@ -12,18 +12,6 @@
 
 #include "libft/libft.h"
 
-// void	args_check(int argc, char **argv)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	if (argc != 3)
-// 		while (argv[1][i])
-// 			if (!ft_isdigit(argv[1][i++]))
-// 				if (*argv[2] == 0)
-// 					return ;
-// }
-
 void	send_msg(pid_t sv_pid, char *msg)
 {
 	unsigned char	c;
@@ -70,11 +58,10 @@ void	config_signals(void)
 int	main(int argc, char **argv)
 {
 	pid_t		sv_pid;
-	
-	if (argc)
-	//args_check(argc, argv);
+
 	sv_pid = ft_atoi(argv[1]);
 	config_signals();
 	send_msg(sv_pid, argv[2]);
-	return (EXIT_SUCCESS);
+	if (argc)
+		return (EXIT_SUCCESS);
 }
