@@ -1,6 +1,3 @@
 {
-	"files.associations": {
-		"signal.h": "c",
-		"stddef.h": "c"
-	}
+	"C_Cpp.errorSquiggles": "disabled"
 }
