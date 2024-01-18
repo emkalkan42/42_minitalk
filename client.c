@@ -15,13 +15,15 @@
 void	send_msg(pid_t sv_pid, char *msg)
 {
 	unsigned char	c;
-	int				nbr_bits;
+	int				count_bits;
 
+	if (!msg)
+		return ;
 	while (*msg)
 	{
 		c = *msg;
-		nbr_bits = 8;
-		while (nbr_bits--)
+		count_bits = 8;
+		while (count_bits--)
 		{
 			if (c & 0b10000000)
 				kill(sv_pid, SIGUSR1);
@@ -36,11 +38,7 @@ void	send_msg(pid_t sv_pid, char *msg)
 
 void	sig_handler(int signum)
 {
-	int	i;
-
-	i = 0;
-	if (signum != SIGUSR2)
-		i++;
+	(void)signum;
 }
 
 void	config_signals(void)
@@ -59,6 +57,8 @@ int	main(int argc, char **argv)
 {
 	pid_t		sv_pid;
 
+    if (argc < 2 || argc > 3)
+		return (1);
 	sv_pid = ft_atoi(argv[1]);
 	config_signals();
 	send_msg(sv_pid, argv[2]);

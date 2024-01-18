@@ -13,7 +13,7 @@
 SOURCES = server.c client.c
 OBJECTS = $(SOURCES:.c=.o)
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -std=c99 -D_POSIX_C_SOURCE=200809L
 
 all: libft server client

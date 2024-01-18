@@ -28,7 +28,7 @@ void	handle_sigusr(int signum, siginfo_t *info, void *ucontent)
 		ft_putchar_fd(c, STDOUT_FILENO);
 		c = 0;
 		if (kill(info->si_pid, SIGUSR2) == -1)
-		return ;
+			return ;
 	}
 	if (kill(info->si_pid, SIGUSR1) == -1)
 		return ;
