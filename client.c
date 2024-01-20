@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 {
 	pid_t		sv_pid;
 
-    if (argc < 2 || argc > 3)
+	if (argc < 2 || argc > 3)
 		return (1);
 	sv_pid = ft_atoi(argv[1]);
 	config_signals();
